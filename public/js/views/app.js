@@ -2,90 +2,90 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'collections/todos',
-  'views/todos',
+  'collections/tasks',
+  'views/task',
   'text!templates/stats.html'
-  ], function($, _, Backbone, Todos, TodoView, statsTemplate){
+  ], function($, _, Backbone, Tasks, TaskView, statsTemplate){
   var AppView = Backbone.View.extend({
 
     // Instead of generating a new element, bind to the existing skeleton of
     // the App already present in the HTML.
-    el: $("#todoapp"),
+    el: $("#taskapp"),
 
     // Our template for the line of statistics at the bottom of the app.
     statsTemplate: _.template(statsTemplate),
 
     // Delegated events for creating new items, and clearing completed ones.
     events: {
-      "keypress #new-todo":  "createOnEnter",
-      "keyup #new-todo":     "showTooltip",
-      "click .todo-clear a": "clearCompleted"
+      "keypress #new-task":  "createOnEnter",
+      "keyup #new-task":     "showTooltip",
+      "click .task-clear a": "clearCompleted"
     },
 
-    // At initialization we bind to the relevant events on the `Todos`
+    // At initialization we bind to the relevant events on the `Tasks`
     // collection, when items are added or changed. Kick things off by
-    // loading any preexisting todos that might be saved in *localStorage*.
+    // loading any preexisting tasks that might be saved in *localStorage*.
     initialize: function() {
       _.bindAll(this, 'addOne', 'addAll', 'render');
 
-      this.input    = this.$("#new-todo");
+      this.input    = this.$("#new-task");
 
-      Todos.bind('add',     this.addOne);
-      Todos.bind('reset',   this.addAll);
-      Todos.bind('all',     this.render);
+      Tasks.bind('add',     this.addOne);
+      Tasks.bind('reset',   this.addAll);
+      Tasks.bind('all',     this.render);
 
-      Todos.fetch();
+      Tasks.fetch();
     },
 
     // Re-rendering the App just means refreshing the statistics -- the rest
     // of the app doesn't change.
     render: function() {
-      var done = Todos.done().length;
-      var remaining = Todos.remaining().length;
+      var done = Tasks.done().length;
+      var remaining = Tasks.remaining().length;
 
-      this.$('#todo-stats').html(this.statsTemplate({
-        total:      Todos.length,
+      this.$('#task-stats').html(this.statsTemplate({
+        total:      Tasks.length,
         done:       done,
         remaining:  remaining
       }));
     },
 
-    // Add a single todo item to the list by creating a view for it, and
+    // Add a single task item to the list by creating a view for it, and
     // appending its element to the `<ul>`.
-    addOne: function(todo) {
-      var view = new TodoView({model: todo});
-      this.$("#todo-list").append(view.render().el);
+    addOne: function(task) {
+      var view = new TaskView({model: task});
+      this.$("#task-list").append(view.render().el);
     },
 
-    // Add all items in the **Todos** collection at once.
+    // Add all items in the **Tasks** collection at once.
     addAll: function() {
-      Todos.each(this.addOne);
+      Tasks.each(this.addOne);
     },
 
-    // Generate the attributes for a new Todo item.
+    // Generate the attributes for a new Task item.
     newAttributes: function() {
       return {
         content: this.input.val(),
-        order:   Todos.nextOrder()
+        order:   Tasks.nextOrder()
       };
     },
 
-    // If you hit return in the main input field, create new **Todo** model,
+    // If you hit return in the main input field, create new **Task** model,
     // persisting it to *localStorage*.
     createOnEnter: function(e) {
       if (e.keyCode != 13) return;
-      Todos.create(this.newAttributes());
+      Tasks.create(this.newAttributes());
       this.input.val('');
     },
 
-    // Clear all done todo items, destroying their models.
+    // Clear all done task items, destroying their models.
     clearCompleted: function() {
-      _.each(Todos.done(), function(todo){ todo.clear(); });
+      _.each(Tasks.done(), function(task){ task.clear(); });
       return false;
     },
 
     // Lazily show the tooltip that tells you to press `enter` to save
-    // a new todo item, after one second.
+    // a new task item, after one second.
     showTooltip: function(e) {
       var tooltip = this.$(".ui-tooltip-top");
       var val = this.input.val();

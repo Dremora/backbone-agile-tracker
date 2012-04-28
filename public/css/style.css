@@ -39,7 +39,7 @@ body {
 	color: #333333;
 }
 
-#todoapp {
+#taskapp {
 	width: 480px;
 	margin: 0 auto 40px;
 	background: white;
@@ -49,7 +49,7 @@ body {
 	-o-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
 	box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
 }
-#todoapp h1 {
+#taskapp h1 {
 	font-size: 36px;
 	font-weight: bold;
 	text-align: center;
@@ -57,10 +57,10 @@ body {
 	line-height: 1;
 }
 
-#create-todo {
+#create-task {
 	position: relative;
 }
-#create-todo input {
+#create-task input {
 	width: 466px;
 	font-size: 24px;
 	font-family: inherit;
@@ -75,7 +75,7 @@ body {
 	box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
 }
 
-#create-todo span {
+#create-task span {
 	position: absolute;
 	z-index: 999;
 	width: 170px;
@@ -83,17 +83,17 @@ body {
 	margin-left: -85px;
 }
 
-#todo-list {
+#task-list {
 	margin-top: 10px;
 }
-#todo-list li {
+#task-list li {
 	padding: 12px 20px 11px 0;
 	position: relative;
 	font-size: 24px;
 	line-height: 1.1em;
 	border-bottom: 1px solid #cccccc;
 }
-#todo-list li:after {
+#task-list li:after {
 	content: "\0020";
 	display: block;
 	height: 0;
@@ -101,18 +101,18 @@ body {
 	overflow: hidden;
 	visibility: hidden;
 }
-#todo-list li.editing {
+#task-list li.editing {
 	padding: 0;
 	border-bottom: 0;
 }
-#todo-list .editing .display,
-#todo-list .edit {
+#task-list .editing .display,
+#task-list .edit {
 	display: none;
 }
-#todo-list .editing .edit {
+#task-list .editing .edit {
 	display: block;
 }
-#todo-list .editing input {
+#task-list .editing input {
 	width: 444px;
 	font-size: 24px;
 	font-family: inherit;
@@ -127,17 +127,17 @@ body {
 	-o-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
 	box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
 }
-#todo-list .check {
+#task-list .check {
 	position: relative;
 	top: 9px;
 	margin: 0 10px 0 7px;
 	float: left;
 }
-#todo-list .done .todo-content {
+#task-list .done .task-content {
 	text-decoration: line-through;
 	color: #777777;
 }
-#todo-list .todo-destroy {
+#task-list .task-destroy {
 	position: absolute;
 	right: 5px;
 	top: 14px;
@@ -147,19 +147,19 @@ body {
 	height: 20px;
 	background: url(destroy.png) no-repeat 0 0;
 }
-#todo-list li:hover .todo-destroy {
+#task-list li:hover .task-destroy {
 	display: block;
 }
-#todo-list .todo-destroy:hover {
+#task-list .task-destroy:hover {
 	background-position: 0 -20px;
 }
 
-#todo-stats {
+#task-stats {
 	*zoom: 1;
 	margin-top: 10px;
 	color: #777777;
 }
-#todo-stats:after {
+#task-stats:after {
 	content: "\0020";
 	display: block;
 	height: 0;
@@ -167,24 +167,24 @@ body {
 	overflow: hidden;
 	visibility: hidden;
 }
-#todo-stats .todo-count {
+#task-stats .task-count {
 	float: left;
 }
-#todo-stats .todo-count .number {
+#task-stats .task-count .number {
 	font-weight: bold;
 	color: #333333;
 }
-#todo-stats .todo-clear {
+#task-stats .task-clear {
 	float: right;
 }
-#todo-stats .todo-clear a {
+#task-stats .task-clear a {
 	color: #777777;
 	font-size: 12px;
 }
-#todo-stats .todo-clear a:visited {
+#task-stats .task-clear a:visited {
 	color: #777777;
 }
-#todo-stats .todo-clear a:hover {
+#task-stats .task-clear a:hover {
 	color: #336699;
 }
 
@@ -316,7 +316,7 @@ body {
 
 
 /* line 17 */
-#todoapp {
+#taskapp {
 	background: white;
 	-moz-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 6px 0;
 	-webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 6px 0;
@@ -339,11 +339,11 @@ body {
 
 
 /* line 32 */
-#todoapp .content #create-todo {
+#taskapp .content #create-task {
 	position: relative;
 }
 /* line 34 */
-#todoapp .content #create-todo input {
+#taskapp .content #create-task input {
 	font-size: 24px;
 	font-family: inherit;
 	line-height: 1.4em;
@@ -358,7 +358,7 @@ body {
 }
 
 /* line 47 */
-#todoapp .content #create-todo span {
+#taskapp .content #create-task span {
 	position: absolute;
 	z-index: 999;
 	width: 170px;
@@ -366,11 +366,11 @@ body {
 	margin-left: -85px;
 }
 /* line 55 */
-#todoapp .content ul#todo-list {
+#taskapp .content ul#task-list {
 	margin-top: 10px;
 }
 /* line 57 */
-#todoapp .content ul#todo-list li {
+#taskapp .content ul#task-list li {
 	padding: 15px 20px 15px 0;
 	position: relative;
 	font-size: 24px;
@@ -379,7 +379,7 @@ body {
 	cursor: move;
 }
 /* line 22, /opt/ree/lib/ruby/gems/1.8/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-#todoapp .content ul#todo-list li:after {
+#taskapp .content ul#task-list li:after {
 	content: "\0020";
 	display: block;
 	height: 0;
@@ -388,12 +388,12 @@ body {
 	visibility: hidden;
 }
 /* line 64 */
-#todoapp .content ul#todo-list li.editing {
+#taskapp .content ul#task-list li.editing {
 	padding: 0;
 	border-bottom: 0;
 }
 /* line 67 */
-#todoapp .content ul#todo-list li.editing .todo-input {
+#taskapp .content ul#task-list li.editing .task-input {
 	display: block;
 	width: 466px;
 	font-size: 24px;
@@ -409,35 +409,35 @@ body {
 	box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
 }
 /* line 79 */
-#todoapp .content ul#todo-list li.editing .todo-content {
+#taskapp .content ul#task-list li.editing .task-content {
 	display: none;
 }
 /* line 81 */
-#todoapp .content ul#todo-list li.editing .todo-check {
+#taskapp .content ul#task-list li.editing .task-check {
 	display: none;
 }
 /* line 83 */
-#todoapp .content ul#todo-list li.editing .todo-destroy {
+#taskapp .content ul#task-list li.editing .task-destroy {
 	display: none !important;
 }
 /* line 85 */
-#todoapp .content ul#todo-list li .todo-input {
+#taskapp .content ul#task-list li .task-input {
 	display: none;
 }
 /* line 87 */
-#todoapp .content ul#todo-list li .todo-check {
+#taskapp .content ul#task-list li .task-check {
 	position: relative;
 	top: 6px;
 	margin: 0 10px 0 7px;
 	float: left;
 }
 /* line 93 */
-#todoapp .content ul#todo-list li.done .todo-content {
+#taskapp .content ul#task-list li.done .task-content {
 	text-decoration: line-through;
 	color: #777777;
 }
 /* line 96 */
-#todoapp .content ul#todo-list li .todo-destroy {
+#taskapp .content ul#task-list li .task-destroy {
 	position: absolute;
 	right: 0px;
 	top: 16px;
@@ -447,11 +447,11 @@ body {
 	height: 20px;
 }
 /* line 106 */
-#todoapp .content ul#todo-list li:hover .todo-destroy {
+#taskapp .content ul#task-list li:hover .task-destroy {
 	display: block;
 }
 /* line 109 */
-#todoapp #todo-stats {
+#taskapp #task-stats {
 	*zoom: 1;
 	margin-top: 10px;
 	color: #555555;
@@ -473,7 +473,7 @@ body {
 	line-height: 36px;
 }
 /* line 22, /opt/ree/lib/ruby/gems/1.8/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-#todoapp #todo-stats:after {
+#taskapp #task-stats:after {
 	content: "\0020";
 	display: block;
 	height: 0;
@@ -482,20 +482,20 @@ body {
 	visibility: hidden;
 }
 /* line 118 */
-#todoapp #todo-stats .todo-count {
+#taskapp #task-stats .task-count {
 	float: left;
 }
 /* line 120 */
-#todoapp #todo-stats .todo-count .number {
+#taskapp #task-stats .task-count .number {
 	font-weight: bold;
 	color: #555555;
 }
 /* line 123 */
-#todoapp #todo-stats .todo-clear {
+#taskapp #task-stats .task-clear {
 	float: right;
 }
 /* line 125 */
-#todoapp #todo-stats .todo-clear a {
+#taskapp #task-stats .task-clear a {
 	display: block;
 	line-height: 20px;
 	text-decoration: none;
@@ -516,7 +516,7 @@ body {
 	box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
 }
 /* line 136 */
-#todoapp #todo-stats .todo-clear a:hover {
+#taskapp #task-stats .task-clear a:hover {
 	background: rgba(0, 0, 0, 0.15);
 	-moz-box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
 	-webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
@@ -524,7 +524,7 @@ body {
 	box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
 }
 /* line 139 */
-#todoapp #todo-stats .todo-clear a:active {
+#taskapp #task-stats .task-clear a:active {
 	position: relative;
 	top: 1px;
 }
