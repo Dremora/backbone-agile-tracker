@@ -4,7 +4,7 @@ define(['underscore', 'backbone'], function(_, Backbone) {
     // Default attributes for the todo.
     defaults: {
       content: "empty todo...",
-      done: false
+      status: 'new'
     },
 
     // Ensure that each todo created has `content`.
@@ -12,11 +12,6 @@ define(['underscore', 'backbone'], function(_, Backbone) {
       if (!this.get("content")) {
         this.set({"content": this.defaults.content});
       }
-    },
-
-    // Toggle the `done` state of this todo item.
-    toggle: function() {
-      this.save({done: !this.get("done")});
     },
 
     // Remove this Todo from *localStorage*.

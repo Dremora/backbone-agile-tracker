@@ -1,6 +1,6 @@
 define([
-  'jquery', 
-  'underscore', 
+  'jquery',
+  'underscore',
   'backbone',
   'text!templates/todos.html'
   ], function($, _, Backbone, todosTemplate){
@@ -14,7 +14,6 @@ define([
 
     // The DOM events specific to an item.
     events: {
-      "click .check"              : "toggleDone",
       "dblclick div.todo-content" : "edit",
       "click span.todo-destroy"   : "clear",
       "keypress .todo-input"      : "updateOnEnter",
@@ -35,11 +34,6 @@ define([
       $(this.el).html(this.template(this.model.toJSON()));
       this.input = this.$('.todo-input');
       return this;
-    },
-
-    // Toggle the `"done"` state of the model.
-    toggleDone: function() {
-      this.model.toggle();
     },
 
     // Switch this view into `"editing"` mode, displaying the input field.

@@ -1,10 +1,10 @@
 define([
-  'underscore', 
-  'backbone', 
-  'libs/backbone/localstorage', 
+  'underscore',
+  'backbone',
+  'libs/backbone/localstorage',
   'models/todo'
   ], function(_, Backbone, Store, Todo){
-	  
+
 	var TodosCollection = Backbone.Collection.extend({
 
     // Reference to this collection's model.
@@ -15,7 +15,7 @@ define([
 
     // Filter down the list of all todo items that are finished.
     done: function() {
-      return this.filter(function(todo){ return todo.get('done'); });
+      return this.filter(function(todo){ return todo.get('status') === 'done'; });
     },
 
     // Filter down the list to only todo items that are still not finished.

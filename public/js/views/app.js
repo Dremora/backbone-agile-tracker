@@ -1,6 +1,6 @@
 define([
   'jquery',
-  'underscore', 
+  'underscore',
   'backbone',
   'collections/todos',
   'views/todos',
@@ -19,18 +19,16 @@ define([
     events: {
       "keypress #new-todo":  "createOnEnter",
       "keyup #new-todo":     "showTooltip",
-      "click .todo-clear a": "clearCompleted",
-      "click .mark-all-done": "toggleAllComplete"
+      "click .todo-clear a": "clearCompleted"
     },
 
     // At initialization we bind to the relevant events on the `Todos`
     // collection, when items are added or changed. Kick things off by
     // loading any preexisting todos that might be saved in *localStorage*.
     initialize: function() {
-      _.bindAll(this, 'addOne', 'addAll', 'render', 'toggleAllComplete');
+      _.bindAll(this, 'addOne', 'addAll', 'render');
 
       this.input    = this.$("#new-todo");
-      this.allCheckbox = this.$(".mark-all-done")[0];
 
       Todos.bind('add',     this.addOne);
       Todos.bind('reset',   this.addAll);
@@ -50,8 +48,6 @@ define([
         done:       done,
         remaining:  remaining
       }));
-
-      this.allCheckbox.checked = !remaining;
     },
 
     // Add a single todo item to the list by creating a view for it, and
@@ -70,8 +66,7 @@ define([
     newAttributes: function() {
       return {
         content: this.input.val(),
-        order:   Todos.nextOrder(),
-        done:    false
+        order:   Todos.nextOrder()
       };
     },
 
@@ -99,12 +94,6 @@ define([
       if (val == '' || val == this.input.attr('placeholder')) return;
       var show = function(){ tooltip.show().fadeIn(); };
       this.tooltipTimeout = _.delay(show, 1000);
-    },
-
-    // Change each todo so that it's `done` state matches the check all
-    toggleAllComplete: function () {
-      var done = this.allCheckbox.checked;
-      Todos.each(function (todo) { todo.save({'done': done}); });
     }
 
   });
