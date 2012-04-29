@@ -29,9 +29,21 @@ define([
 
     render: function() {
       var tasks = this.$('#tasks');
-      tasks.append(new TasksView({collection: Tasks, status: 'new'}).render().$el);
-      tasks.append(new TasksView({collection: Tasks, status: 'inProgress'}).render().$el);
-      tasks.append(new TasksView({collection: Tasks, status: 'done'}).render().$el);
+      tasks.append(new TasksView({
+        collection: Tasks,
+        name: 'Unstarted',
+        status: 'new'
+      }).render().$el);
+      tasks.append(new TasksView({
+        collection: Tasks,
+        name: 'Ongoing',
+        status: 'inProgress'
+      }).render().$el);
+      tasks.append(new TasksView({
+        collection: Tasks,
+        name: 'Completed',
+        status: 'done'
+      }).render().$el);
       this.$('#task-stats').html(new StatsView().render().$el);
     },
 
