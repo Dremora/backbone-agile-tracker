@@ -26,23 +26,26 @@ define([
     render: function() {
       this.$el.html(this.template());
       this.input = this.$("#new-task");
-      var tasks = this.$('#tasks');
+      var tasks = this.$('.task-columns');
       tasks.append(new TasksView({
         collection: Tasks,
+        tagName: 'li',
         name: 'Unstarted',
         status: 'new'
       }).render().$el);
       tasks.append(new TasksView({
         collection: Tasks,
+        tagName: 'li',
         name: 'Ongoing',
         status: 'inProgress'
       }).render().$el);
       tasks.append(new TasksView({
         collection: Tasks,
+        tagName: 'li',
         name: 'Completed',
         status: 'done'
       }).render().$el);
-      this.$('#task-stats').html(new StatsView().render().$el);
+      this.$('.task-stats').html(new StatsView().render().$el);
       return this;
     },
 

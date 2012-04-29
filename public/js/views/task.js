@@ -15,7 +15,7 @@ define([
     // The DOM events specific to an item.
     events: {
       "dblclick div.task-content" : "edit",
-      "click span.task-destroy"   : "destroy",
+      "click span.destroy"        : "destroy",
       "keypress .task-input"      : "updateOnEnter",
       "blur .task-input"          : "close",
       'click .increment-status'   : 'incrementStatus',

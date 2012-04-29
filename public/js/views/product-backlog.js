@@ -22,7 +22,7 @@ define([
     render: function() {
       this.$el.html(this.template());
       this.input = this.$("#new-task");
-      this.$('#tasks').append(new StoriesView({collection: Stories}).render().$el);
+      this.$el.append(new StoriesView({collection: Stories}).render().$el);
       return this;
     },
 

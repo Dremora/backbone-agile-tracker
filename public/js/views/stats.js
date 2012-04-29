@@ -14,7 +14,7 @@ define([
     },
 
     events: {
-      "click .task-clear a": "clearCompleted"
+      "click .clear a": "clearCompleted"
     },
 
     // Clear all done task items, destroying their models.

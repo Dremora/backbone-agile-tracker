@@ -16,14 +16,17 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	font-family: inherit;
 	vertical-align: baseline;
 }
+
 body {
 	line-height: 1;
 	color: black;
 	background: white;
 }
+
 ol, ul {
 	list-style: none;
 }
+
 a img {
 	border: none;
 }
@@ -31,6 +34,7 @@ a img {
 html {
 	background: #eeeeee;
 }
+
 body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 14px;
@@ -45,11 +49,24 @@ body {
 	margin: 0 auto 40px;
 	background: white;
 	padding: 20px;
-	-moz-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
-	-webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
-	-o-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
-	box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
+	-moz-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 6px 0;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 6px 0;
+	-o-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 6px 0;
+	box-shadow: rgba(0, 0, 0, 0.2) 0 2px 6px 0;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-o-border-bottom-left-radius: 5px;
+	-ms-border-bottom-left-radius: 5px;
+	-khtml-border-bottom-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-o-border-bottom-right-radius: 5px;
+	-ms-border-bottom-right-radius: 5px;
+	-khtml-border-bottom-right-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
+
 #taskapp h1 {
 	font-size: 36px;
 	font-weight: bold;
@@ -58,10 +75,45 @@ body {
 	line-height: 1;
 }
 
+#taskapp > nav {
+	overflow: auto;
+	margin-bottom: 10px;
+}
+
+#taskapp > nav ul {
+	float: left;
+	position: relative;
+	left: 50%;
+}
+
+#taskapp > nav li {
+	float: left;
+	position: relative;
+	right: 50%;
+	padding: 0 10px;
+	border-left: 1px solid #aaa;
+}
+
+#taskapp > nav li:first-child {
+	border-left: none;
+}
+
+#taskapp > nav a {
+	text-decoration: none;
+	color: inherit;
+	font-size: 1.2em;
+	color: #121;
+}
+
+#taskapp > nav a:hover {
+	text-decoration: underline;
+}
+
 #create-task {
 	position: relative;
 	text-align: center;
 }
+
 #create-task input {
 	width: 466px;
 	font-size: 24px;
@@ -85,29 +137,33 @@ body {
 	margin-left: -85px;
 }
 
-#tasks {
+ul.task-columns {
 	overflow: hidden;
 }
 
-.task-list {
-	margin-top: 10px;
+ul.task-columns > li {
 	width: 33%;
 	float: left;
-
 }
-.task-list li {
-	padding: 12px 20px 11px 0;
+
+ul.tasks {
+	margin-top: 10px;
+}
+
+ul.tasks > li {
+	padding: 15px 20px 15px 0;
 	position: relative;
 	font-size: 24px;
 	line-height: 1.1em;
 	border-bottom: 1px solid #cccccc;
+	cursor: move;
 }
 
-.task-list .display {
+ul.tasks .display {
 	position: relative;
 }
 
-.task-list li:after {
+ul.tasks > li:after {
 	content: "\0020";
 	display: block;
 	height: 0;
@@ -115,64 +171,73 @@ body {
 	overflow: hidden;
 	visibility: hidden;
 }
-.task-list li.editing {
+
+ul.tasks > li.editing {
 	padding: 0;
 	border-bottom: 0;
 }
-.task-list .editing .display,
-.task-list .edit {
+
+ul.tasks .editing .display,
+ul.tasks .edit {
 	display: none;
 }
-.task-list .editing .edit {
+
+ul.tasks .editing .edit {
 	display: block;
 }
-.task-list .editing input {
-	width: 444px;
+
+ul.tasks .editing input {
+	width: 100%;
 	font-size: 24px;
 	font-family: inherit;
 	margin: 0;
-	line-height: 1.6em;
+	line-height: 1.4em;
 	border: 0;
 	outline: none;
-	padding: 10px 7px 0px 27px;
+	padding: 6px;
 	border: 1px solid #999999;
 	-moz-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
 	-webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
 	-o-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
 	box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
 }
-.task-list .check {
+
+ul.tasks .check {
 	position: relative;
 	top: 9px;
 	margin: 0 10px 0 7px;
 	float: left;
 }
-.task-list .done .task-content {
+
+ul.tasks .done .task-content {
 	text-decoration: line-through;
 	color: #777777;
 }
-.task-list .task-destroy {
+
+ul.tasks .destroy {
 	position: absolute;
-	right: 5px;
-	top: 14px;
+	right: 0px;
+	top: 0px;
 	display: none;
 	cursor: pointer;
 	width: 20px;
 	height: 20px;
 	background: url(destroy.png) no-repeat 0 0;
 }
-.task-list li:hover .task-destroy {
+
+ul.tasks li:hover .destroy {
 	display: block;
 }
-.task-list .task-destroy:hover {
+
+ul.tasks .destroy:hover {
 	background-position: 0 -20px;
 }
 
-.task-list .task .buttons {
+ul.tasks .task .buttons {
 	padding-top: 5px;
 }
 
-.task-list .task button {
+ul.tasks .task button {
     text-indent: -9999px;
     border: 0;
     margin: 0;
@@ -183,32 +248,49 @@ body {
 	visibility: hidden;
 }
 
-.task-list li:hover button{
+ul.tasks li:hover button{
 	opacity: 0.3;
 	visibility: visible;
 }
 
-.task-list .task button:hover {
+ul.tasks .task button:hover {
 	opacity: 1;
 }
 
-.task-list .task .decrement-status {
+ul.tasks .task .decrement-status {
 	float: left;
     background-image: url(left.png);
 }
 
-.task-list .task .increment-status {
+ul.tasks .task .increment-status {
 	float: right;
     background-image: url(right.png);
 }
 
 
-#task-stats {
+.task-stats {
 	*zoom: 1;
 	margin-top: 10px;
-	color: #777777;
+	color: #555555;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-o-border-bottom-left-radius: 5px;
+	-ms-border-bottom-left-radius: 5px;
+	-khtml-border-bottom-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-o-border-bottom-right-radius: 5px;
+	-ms-border-bottom-right-radius: 5px;
+	-khtml-border-bottom-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	background: #f4fce8;
+	border-top: 1px solid #ededed;
+	padding: 0 20px;
+	line-height: 36px;
 }
-#task-stats:after {
+
+.task-stats:after {
 	content: "\0020";
 	display: block;
 	height: 0;
@@ -216,36 +298,53 @@ body {
 	overflow: hidden;
 	visibility: hidden;
 }
-#task-stats .task-count {
+
+.task-stats .task-count {
 	float: left;
 }
-#task-stats .task-count .number {
+
+.task-stats .task-count .number {
 	font-weight: bold;
-	color: #333333;
-}
-#task-stats .task-clear {
-	float: right;
-}
-#task-stats .task-clear a {
-	color: #777777;
-	font-size: 12px;
-}
-#task-stats .task-clear a:visited {
-	color: #777777;
-}
-#task-stats .task-clear a:hover {
-	color: #336699;
+	color: #555555;
 }
 
-#instructions {
-	width: 520px;
-	margin: 10px auto;
-	color: #777777;
-	text-shadow: rgba(255, 255, 255, 0.8) 0 1px 0;
-	text-align: center;
+.task-stats .clear {
+	float: right;
 }
-#instructions a {
-	color: #336699;
+
+.task-stats .clear a,
+.task-stats .clear a:visited {
+	display: block;
+	line-height: 20px;
+	text-decoration: none;
+	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	-o-border-radius: 12px;
+	-ms-border-radius: 12px;
+	-khtml-border-radius: 12px;
+	border-radius: 12px;
+	background: rgba(0, 0, 0, 0.1);
+	color: #555555;
+	font-size: 11px;
+	margin-top: 8px;
+	padding: 0 10px 1px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
+	-o-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
+	box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
+}
+
+.task-stats .clear a:hover {
+	background: rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
+	-o-box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
+	box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
+}
+
+.task-stats .clear a:active {
+	position: relative;
+	top: 1px;
 }
 
 #credits {
@@ -255,14 +354,12 @@ body {
 	text-shadow: rgba(255, 255, 255, 0.8) 0 1px 0;
 	text-align: center;
 }
+
 #credits a {
 	color: #888;
 }
 
-
-/*
-*  François 'cahnory' Germain
-*/
+/* Tooltip */
 .ui-tooltip, .ui-tooltip-top, .ui-tooltip-right, .ui-tooltip-bottom, .ui-tooltip-left {
 	color:#ffffff;
 	cursor:normal;
@@ -301,6 +398,7 @@ body {
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorStr=#555555,EndColorStr=#222222);
 	-ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorStr=#555555,EndColorStr=#222222);
 }
+
 .ui-tooltip:after, .ui-tooltip-top:after, .ui-tooltip-right:after, .ui-tooltip-bottom:after, .ui-tooltip-left:after {
 	content:"\25B8";
 	display:block;
@@ -309,6 +407,7 @@ body {
 	line-height:0;
 	position:absolute;
 }
+
 .ui-tooltip:after, .ui-tooltip-bottom:after {
 	color:#2a2a2a;
 	bottom:0;
@@ -321,6 +420,7 @@ body {
 	-webkit-transform:rotate(90deg);
 	width:100%;
 }
+
 .ui-tooltip-top:after {
 	bottom:auto;
 	color:#4f4f4f;
@@ -334,6 +434,7 @@ body {
 	-webkit-transform:rotate(-90deg);
 	width:100%;
 }
+
 .ui-tooltip-right:after {
 	color:#222222;
 	right:-0.375em;
@@ -345,6 +446,7 @@ body {
 	-khtml-transform:rotate(0);
 	-webkit-transform:rotate(0);
 }
+
 .ui-tooltip-left:after {
 	color:#222222;
 	left:-0.375em;
@@ -356,259 +458,3 @@ body {
 	-khtml-transform:rotate(180deg);
 	-webkit-transform:rotate(180deg);
 }
-
-
-
-/*the following changes require some cleanup and integration with the above.**/
-
-/* line 9 */
-
-
-/* line 17 */
-#taskapp {
-	background: white;
-	-moz-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 6px 0;
-	-webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 6px 0;
-	-o-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 6px 0;
-	box-shadow: rgba(0, 0, 0, 0.2) 0 2px 6px 0;
-	-moz-border-radius-bottomleft: 5px;
-	-webkit-border-bottom-left-radius: 5px;
-	-o-border-bottom-left-radius: 5px;
-	-ms-border-bottom-left-radius: 5px;
-	-khtml-border-bottom-left-radius: 5px;
-	border-bottom-left-radius: 5px;
-	-moz-border-radius-bottomright: 5px;
-	-webkit-border-bottom-right-radius: 5px;
-	-o-border-bottom-right-radius: 5px;
-	-ms-border-bottom-right-radius: 5px;
-	-khtml-border-bottom-right-radius: 5px;
-	border-bottom-right-radius: 5px;
-}
-/* line 24 */
-
-#taskapp > nav {
-	overflow: auto;
-	margin-bottom: 10px;
-}
-
-#taskapp > nav ul {
-	float: left;
-	position: relative;
-	left: 50%;
-}
-
-#taskapp > nav li {
-	float: left;
-	position: relative;
-	right: 50%;
-	padding: 0 10px;
-	border-left: 1px solid #aaa;
-}
-
-#taskapp > nav li:first-child {
-	border-left: none;
-}
-
-#taskapp > nav a {
-	text-decoration: none;
-	color: inherit;
-	font-size: 1.2em;
-	color: #121;
-}
-
-#taskapp > nav a:hover {
-	text-decoration: underline;
-}
-
-
-/* line 32 */
-#taskapp .content #create-task {
-	position: relative;
-}
-/* line 34 */
-#taskapp .content #create-task input {
-	font-size: 24px;
-	font-family: inherit;
-	line-height: 1.4em;
-	border: 0;
-	outline: none;
-	padding: 6px;
-	border: 1px solid #999999;
-	-moz-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
-	-webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
-	-o-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
-	box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
-}
-
-/* line 47 */
-#taskapp .content #create-task span {
-	position: absolute;
-	z-index: 999;
-	width: 170px;
-	left: 50%;
-	margin-left: -85px;
-}
-/* line 55 */
-#taskapp .content ul.task-list {
-	margin-top: 10px;
-}
-/* line 57 */
-#taskapp .content ul.task-list li {
-	padding: 15px 20px 15px 0;
-	position: relative;
-	font-size: 24px;
-	border-bottom: 1px solid #cccccc;
-	*zoom: 1;
-	cursor: move;
-}
-/* line 22, /opt/ree/lib/ruby/gems/1.8/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-#taskapp .content ul.task-list li:after {
-	content: "\0020";
-	display: block;
-	height: 0;
-	clear: both;
-	overflow: hidden;
-	visibility: hidden;
-}
-/* line 64 */
-#taskapp .content ul.task-list li.editing {
-	padding: 0;
-	border-bottom: 0;
-}
-/* line 67 */
-#taskapp .content ul.task-list li.editing .task-input {
-	display: block;
-	width: 466px;
-	font-size: 24px;
-	font-family: inherit;
-	line-height: 1.4em;
-	border: 0;
-	outline: none;
-	padding: 6px;
-	border: 1px solid #999999;
-	-moz-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
-	-webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
-	-o-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
-	box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
-}
-/* line 79 */
-#taskapp .content ul.task-list li.editing .task-content {
-	display: none;
-}
-/* line 81 */
-#taskapp .content ul.task-list li.editing .task-check {
-	display: none;
-}
-/* line 83 */
-#taskapp .content ul.task-list li.editing .task-destroy {
-	display: none !important;
-}
-/* line 85 */
-#taskapp .content ul.task-list li .task-input {
-	display: none;
-}
-/* line 87 */
-#taskapp .content ul.task-list li .task-check {
-	position: relative;
-	top: 6px;
-	margin: 0 10px 0 7px;
-	float: left;
-}
-/* line 93 */
-#taskapp .content ul.task-list li.done .task-content {
-	text-decoration: line-through;
-	color: #777777;
-}
-/* line 96 */
-#taskapp .content ul.task-list li .task-destroy {
-	position: absolute;
-	right: 0px;
-	top: 0px;
-	display: none;
-	cursor: pointer;
-	width: 20px;
-	height: 20px;
-}
-/* line 106 */
-#taskapp .content ul.task-list li:hover .task-destroy {
-	display: block;
-}
-/* line 109 */
-#taskapp #task-stats {
-	*zoom: 1;
-	margin-top: 10px;
-	color: #555555;
-	-moz-border-radius-bottomleft: 5px;
-	-webkit-border-bottom-left-radius: 5px;
-	-o-border-bottom-left-radius: 5px;
-	-ms-border-bottom-left-radius: 5px;
-	-khtml-border-bottom-left-radius: 5px;
-	border-bottom-left-radius: 5px;
-	-moz-border-radius-bottomright: 5px;
-	-webkit-border-bottom-right-radius: 5px;
-	-o-border-bottom-right-radius: 5px;
-	-ms-border-bottom-right-radius: 5px;
-	-khtml-border-bottom-right-radius: 5px;
-	border-bottom-right-radius: 5px;
-	background: #f4fce8;
-	border-top: 1px solid #ededed;
-	padding: 0 20px;
-	line-height: 36px;
-}
-/* line 22, /opt/ree/lib/ruby/gems/1.8/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-#taskapp #task-stats:after {
-	content: "\0020";
-	display: block;
-	height: 0;
-	clear: both;
-	overflow: hidden;
-	visibility: hidden;
-}
-/* line 118 */
-#taskapp #task-stats .task-count {
-	float: left;
-}
-/* line 120 */
-#taskapp #task-stats .task-count .number {
-	font-weight: bold;
-	color: #555555;
-}
-/* line 123 */
-#taskapp #task-stats .task-clear {
-	float: right;
-}
-/* line 125 */
-#taskapp #task-stats .task-clear a {
-	display: block;
-	line-height: 20px;
-	text-decoration: none;
-	-moz-border-radius: 12px;
-	-webkit-border-radius: 12px;
-	-o-border-radius: 12px;
-	-ms-border-radius: 12px;
-	-khtml-border-radius: 12px;
-	border-radius: 12px;
-	background: rgba(0, 0, 0, 0.1);
-	color: #555555;
-	font-size: 11px;
-	margin-top: 8px;
-	padding: 0 10px 1px;
-	-moz-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
-	-webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
-	-o-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
-	box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
-}
-/* line 136 */
-#taskapp #task-stats .task-clear a:hover {
-	background: rgba(0, 0, 0, 0.15);
-	-moz-box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
-	-webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
-	-o-box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
-	box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
-}
-/* line 139 */
-#taskapp #task-stats .task-clear a:active {
-	position: relative;
-	top: 1px;
-}
-

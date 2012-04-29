@@ -7,8 +7,6 @@ define([
 
   var TasksView = Backbone.View.extend({
 
-    tagName: 'ul',
-    className: 'task-list',
     template: _.template(tasksTemplate),
 
     initialize: function(options) {
@@ -36,7 +34,7 @@ define([
     addOne: function(task) {
       if (task.get('status') !== this.status) return;
       var view = new TaskView({model: task});
-      this.$el.append(view.render().el);
+      this.$('.tasks').append(view.render().el);
     }
 
   });

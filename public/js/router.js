@@ -28,8 +28,7 @@ define([
     },
 
     backlog: function() {
-      var view = new ProductBacklogView;
-      $(".content").html(view.render().el);
+      new ProductBacklogView({el: $(".content")}).render();
     },
 
     sprintPlanning: function() {
@@ -37,8 +36,7 @@ define([
     },
 
     sprintBacklog: function() {
-      var view = new SprintView;
-      $(".content").html(view.render().el);
+      new SprintView({el: $(".content")}).render();
     }
 
   });
