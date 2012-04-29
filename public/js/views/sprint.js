@@ -21,12 +21,12 @@ define([
     // collection, when items are added or changed. Kick things off by
     // loading any preexisting tasks that might be saved in *localStorage*.
     initialize: function() {
-      this.input = this.$("#new-task");
       this.render();
     },
 
     render: function() {
       this.$el.html(this.template());
+      this.input = this.$("#new-task");
       var tasks = this.$('#tasks');
       tasks.append(new TasksView({
         collection: Tasks,
