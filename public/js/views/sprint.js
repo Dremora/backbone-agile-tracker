@@ -13,8 +13,7 @@ define([
     // Delegated events for creating new items, and clearing completed ones.
     events: {
       "keypress #new-task":  "createOnEnter",
-      "keyup #new-task":     "showTooltip",
-      "click .task-clear a": "clearCompleted"
+      "keyup #new-task":     "showTooltip"
     },
 
     // At initialization we bind to the relevant events on the `Tasks`
@@ -61,12 +60,6 @@ define([
       if (e.keyCode != 13) return;
       Tasks.create(this.newAttributes());
       this.input.val('');
-    },
-
-    // Clear all done task items, destroying their models.
-    clearCompleted: function() {
-      _.each(Tasks.done(), function(task){ task.clear(); });
-      return false;
     },
 
     // Lazily show the tooltip that tells you to press `enter` to save
