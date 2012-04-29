@@ -163,6 +163,41 @@ body {
 	background-position: 0 -20px;
 }
 
+.task-list .task .buttons {
+	padding-top: 5px;
+}
+
+.task-list .task button {
+    text-indent: -9999px;
+    border: 0;
+    margin: 0;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+	background: transparent;
+	visibility: hidden;
+}
+
+.task-list li:hover button{
+	opacity: 0.3;
+	visibility: visible;
+}
+
+.task-list .task button:hover {
+	opacity: 1;
+}
+
+.task-list .task .decrement-status {
+	float: left;
+    background-image: url(left.png);
+}
+
+.task-list .task .increment-status {
+	float: right;
+    background-image: url(right.png);
+}
+
+
 #task-stats {
 	*zoom: 1;
 	margin-top: 10px;

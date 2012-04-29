@@ -6,10 +6,12 @@
   <div class="edit">
     <input class="task-input" type="text" value="<%= content %>" />
   </div>
-  <% if (status !== 'new') { %>
-  <button class="decrement-status">←</button>
-  <% } %>
-  <% if (status !== 'done') { %>
-  <button class="increment-status">→</button>
-  <% } %>
+  <div class="buttons">
+    <% if (status !== 'new') { %>
+    <button class="decrement-status">←</button>
+    <% } %>
+    <% if (status !== 'done') { %>
+    <button class="increment-status">→</button>
+    <% } %>
+  </div>
 </div>
