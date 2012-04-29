@@ -2,8 +2,9 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'views/sprint',
-  ], function($, _, Backbone, SprintView) {
+  'views/product-backlog',
+  'views/sprint'
+  ], function($, _, Backbone, ProductBacklogView, SprintView) {
   var Router = Backbone.Router.extend({
 
     initialize: function() {
@@ -27,7 +28,8 @@ define([
     },
 
     backlog: function() {
-      $('.content').html('In progress');
+      var view = new ProductBacklogView;
+      $(".content").html(view.render().el);
     },
 
     sprintPlanning: function() {
