@@ -14,6 +14,22 @@ define(['underscore', 'backbone'], function(_, Backbone) {
       }
     },
 
+    incrementStatus: function() {
+      this.save({'status': {
+        'new': 'inProgress',
+        'inProgress': 'done',
+        'done': 'done'
+      }[this.get('status')]});
+    },
+
+    decrementStatus: function() {
+      this.save({'status': {
+        'new': 'new',
+        'inProgress': 'new',
+        'done': 'inProgress'
+      }[this.get('status')]});
+    },
+
     // Remove this Task from *localStorage*.
     clear: function() {
       this.destroy();

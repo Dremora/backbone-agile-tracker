@@ -17,7 +17,9 @@ define([
       "dblclick div.task-content" : "edit",
       "click span.task-destroy"   : "clear",
       "keypress .task-input"      : "updateOnEnter",
-      "blur .task-input"          : "close"
+      "blur .task-input"          : "close",
+      'click .increment-status'   : 'incrementStatus',
+      'click .decrement-status'   : 'decrementStatus'
     },
 
     // The TaskView listens for changes to its model, re-rendering. Since there's
@@ -51,6 +53,14 @@ define([
     // If you hit `enter`, we're through editing the item.
     updateOnEnter: function(e) {
       if (e.keyCode == 13) this.close();
+    },
+
+    incrementStatus: function() {
+      this.model.incrementStatus();
+    },
+
+    decrementStatus: function() {
+      this.model.decrementStatus();
     },
 
     // Remove the item, destroy the model.

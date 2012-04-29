@@ -1,7 +1,7 @@
  <% if (total) { %>
         <span class="task-count">
-          <span class="number"><%= remaining %></span>
-          <span class="word"><%= remaining == 1 ? 'item' : 'items' %></span> left.
+          <span class="number"><%= newTasks + inProgress %></span>
+          <span class="word"><%= newTasks + inProgress == 1 ? 'item' : 'items' %></span> left.
         </span>
       <% } %>
       <% if (done) { %>

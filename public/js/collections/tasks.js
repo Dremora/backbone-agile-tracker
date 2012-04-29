@@ -3,7 +3,7 @@ define([
   'backbone',
   'libs/backbone/localstorage',
   'models/task'
-  ], function(_, Backbone, Store, Task){
+  ], function(_, Backbone, Store, Task) {
 
 	var Tasks = Backbone.Collection.extend({
 
@@ -13,14 +13,20 @@ define([
     // Save all of the task items under the `"tasks"` namespace.
     localStorage: new Store("tasks-backbone-require"),
 
-    // Filter down the list of all task items that are finished.
-    done: function() {
-      return this.filter(function(task){ return task.get('status') === 'done'; });
+    new: function() {
+      return this.filterByStatus('new');
     },
 
-    // Filter down the list to only task items that are still not finished.
-    remaining: function() {
-      return this.without.apply(this, this.done());
+    inProgress: function() {
+      return this.filterByStatus('inProgress');
+    },
+
+    done: function() {
+      return this.filterByStatus('done');
+    },
+
+    filterByStatus: function(status) {
+      return this.filter(function(task) { return task.get('status') === status; });
     },
 
     // We keep the Tasks in sequential order, despite being saved by unordered

@@ -40,7 +40,8 @@ body {
 }
 
 #taskapp {
-	width: 480px;
+	min-width: 480px;
+	max-width: 1080px;
 	margin: 0 auto 40px;
 	background: white;
 	padding: 20px;
@@ -59,6 +60,7 @@ body {
 
 #create-task {
 	position: relative;
+	text-align: center;
 }
 #create-task input {
 	width: 466px;
@@ -83,17 +85,24 @@ body {
 	margin-left: -85px;
 }
 
-#task-list {
-	margin-top: 10px;
+#tasks {
+	overflow: hidden;
 }
-#task-list li {
+
+.task-list {
+	margin-top: 10px;
+	width: 33%;
+	float: left;
+
+}
+.task-list li {
 	padding: 12px 20px 11px 0;
 	position: relative;
 	font-size: 24px;
 	line-height: 1.1em;
 	border-bottom: 1px solid #cccccc;
 }
-#task-list li:after {
+.task-list li:after {
 	content: "\0020";
 	display: block;
 	height: 0;
@@ -101,18 +110,18 @@ body {
 	overflow: hidden;
 	visibility: hidden;
 }
-#task-list li.editing {
+.task-list li.editing {
 	padding: 0;
 	border-bottom: 0;
 }
-#task-list .editing .display,
-#task-list .edit {
+.task-list .editing .display,
+.task-list .edit {
 	display: none;
 }
-#task-list .editing .edit {
+.task-list .editing .edit {
 	display: block;
 }
-#task-list .editing input {
+.task-list .editing input {
 	width: 444px;
 	font-size: 24px;
 	font-family: inherit;
@@ -127,17 +136,17 @@ body {
 	-o-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
 	box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
 }
-#task-list .check {
+.task-list .check {
 	position: relative;
 	top: 9px;
 	margin: 0 10px 0 7px;
 	float: left;
 }
-#task-list .done .task-content {
+.task-list .done .task-content {
 	text-decoration: line-through;
 	color: #777777;
 }
-#task-list .task-destroy {
+.task-list .task-destroy {
 	position: absolute;
 	right: 5px;
 	top: 14px;
@@ -147,10 +156,10 @@ body {
 	height: 20px;
 	background: url(destroy.png) no-repeat 0 0;
 }
-#task-list li:hover .task-destroy {
+.task-list li:hover .task-destroy {
 	display: block;
 }
-#task-list .task-destroy:hover {
+.task-list .task-destroy:hover {
 	background-position: 0 -20px;
 }
 
@@ -366,11 +375,11 @@ body {
 	margin-left: -85px;
 }
 /* line 55 */
-#taskapp .content ul#task-list {
+#taskapp .content ul.task-list {
 	margin-top: 10px;
 }
 /* line 57 */
-#taskapp .content ul#task-list li {
+#taskapp .content ul.task-list li {
 	padding: 15px 20px 15px 0;
 	position: relative;
 	font-size: 24px;
@@ -379,7 +388,7 @@ body {
 	cursor: move;
 }
 /* line 22, /opt/ree/lib/ruby/gems/1.8/gems/compass-0.10.5/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-#taskapp .content ul#task-list li:after {
+#taskapp .content ul.task-list li:after {
 	content: "\0020";
 	display: block;
 	height: 0;
@@ -388,12 +397,12 @@ body {
 	visibility: hidden;
 }
 /* line 64 */
-#taskapp .content ul#task-list li.editing {
+#taskapp .content ul.task-list li.editing {
 	padding: 0;
 	border-bottom: 0;
 }
 /* line 67 */
-#taskapp .content ul#task-list li.editing .task-input {
+#taskapp .content ul.task-list li.editing .task-input {
 	display: block;
 	width: 466px;
 	font-size: 24px;
@@ -409,35 +418,35 @@ body {
 	box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
 }
 /* line 79 */
-#taskapp .content ul#task-list li.editing .task-content {
+#taskapp .content ul.task-list li.editing .task-content {
 	display: none;
 }
 /* line 81 */
-#taskapp .content ul#task-list li.editing .task-check {
+#taskapp .content ul.task-list li.editing .task-check {
 	display: none;
 }
 /* line 83 */
-#taskapp .content ul#task-list li.editing .task-destroy {
+#taskapp .content ul.task-list li.editing .task-destroy {
 	display: none !important;
 }
 /* line 85 */
-#taskapp .content ul#task-list li .task-input {
+#taskapp .content ul.task-list li .task-input {
 	display: none;
 }
 /* line 87 */
-#taskapp .content ul#task-list li .task-check {
+#taskapp .content ul.task-list li .task-check {
 	position: relative;
 	top: 6px;
 	margin: 0 10px 0 7px;
 	float: left;
 }
 /* line 93 */
-#taskapp .content ul#task-list li.done .task-content {
+#taskapp .content ul.task-list li.done .task-content {
 	text-decoration: line-through;
 	color: #777777;
 }
 /* line 96 */
-#taskapp .content ul#task-list li .task-destroy {
+#taskapp .content ul.task-list li .task-destroy {
 	position: absolute;
 	right: 0px;
 	top: 16px;
@@ -447,7 +456,7 @@ body {
 	height: 20px;
 }
 /* line 106 */
-#taskapp .content ul#task-list li:hover .task-destroy {
+#taskapp .content ul.task-list li:hover .task-destroy {
 	display: block;
 }
 /* line 109 */

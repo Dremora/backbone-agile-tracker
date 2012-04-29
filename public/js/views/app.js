@@ -3,17 +3,14 @@ define([
   'underscore',
   'backbone',
   'collections/tasks',
-  'views/task',
-  'text!templates/stats.html'
-  ], function($, _, Backbone, Tasks, TaskView, statsTemplate){
+  'views/tasks',
+  'views/stats'
+  ], function($, _, Backbone, Tasks, TasksView, StatsView){
   var AppView = Backbone.View.extend({
 
     // Instead of generating a new element, bind to the existing skeleton of
     // the App already present in the HTML.
     el: $("#taskapp"),
-
-    // Our template for the line of statistics at the bottom of the app.
-    statsTemplate: _.template(statsTemplate),
 
     // Delegated events for creating new items, and clearing completed ones.
     events: {
@@ -26,40 +23,16 @@ define([
     // collection, when items are added or changed. Kick things off by
     // loading any preexisting tasks that might be saved in *localStorage*.
     initialize: function() {
-      _.bindAll(this, 'addOne', 'addAll', 'render');
-
-      this.input    = this.$("#new-task");
-
-      Tasks.bind('add',     this.addOne);
-      Tasks.bind('reset',   this.addAll);
-      Tasks.bind('all',     this.render);
-
-      Tasks.fetch();
+      this.input = this.$("#new-task");
+      this.render();
     },
 
-    // Re-rendering the App just means refreshing the statistics -- the rest
-    // of the app doesn't change.
     render: function() {
-      var done = Tasks.done().length;
-      var remaining = Tasks.remaining().length;
-
-      this.$('#task-stats').html(this.statsTemplate({
-        total:      Tasks.length,
-        done:       done,
-        remaining:  remaining
-      }));
-    },
-
-    // Add a single task item to the list by creating a view for it, and
-    // appending its element to the `<ul>`.
-    addOne: function(task) {
-      var view = new TaskView({model: task});
-      this.$("#task-list").append(view.render().el);
-    },
-
-    // Add all items in the **Tasks** collection at once.
-    addAll: function() {
-      Tasks.each(this.addOne);
+      var tasks = this.$('#tasks');
+      tasks.append(new TasksView({collection: Tasks, status: 'new'}).render().$el);
+      tasks.append(new TasksView({collection: Tasks, status: 'inProgress'}).render().$el);
+      tasks.append(new TasksView({collection: Tasks, status: 'done'}).render().$el);
+      this.$('#task-stats').html(new StatsView().render().$el);
     },
 
     // Generate the attributes for a new Task item.
