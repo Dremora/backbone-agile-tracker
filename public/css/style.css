@@ -386,6 +386,40 @@ body {
 }
 /* line 24 */
 
+#taskapp > nav {
+	overflow: auto;
+	margin-bottom: 10px;
+}
+
+#taskapp > nav ul {
+	float: left;
+	position: relative;
+	left: 50%;
+}
+
+#taskapp > nav li {
+	float: left;
+	position: relative;
+	right: 50%;
+	padding: 0 10px;
+	border-left: 1px solid #aaa;
+}
+
+#taskapp > nav li:first-child {
+	border-left: none;
+}
+
+#taskapp > nav a {
+	text-decoration: none;
+	color: inherit;
+	font-size: 1.2em;
+	color: #121;
+}
+
+#taskapp > nav a:hover {
+	text-decoration: underline;
+}
+
 
 /* line 32 */
 #taskapp .content #create-task {

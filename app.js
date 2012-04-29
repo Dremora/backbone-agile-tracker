@@ -9,8 +9,8 @@ app.configure(function(){
 
   app.use(express.bodyParser());
   app.use(express.methodOverride());
-  app.use(app.router);
   app.use(express.static(__dirname + '/public'));
+  app.use(app.router);
 
   app.register('.html', {
     compile: function(str, options) {
@@ -30,7 +30,7 @@ app.configure('production', function() {
 });
 
 // Routes
-app.get('/', function(req, res) {
+app.get(/.*/, function(req, res) {
   res.render('index.html');
 });
 
