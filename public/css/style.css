@@ -102,6 +102,11 @@ body {
 	line-height: 1.1em;
 	border-bottom: 1px solid #cccccc;
 }
+
+.task-list .display {
+	position: relative;
+}
+
 .task-list li:after {
 	content: "\0020";
 	display: block;
@@ -484,7 +489,7 @@ body {
 #taskapp .content ul.task-list li .task-destroy {
 	position: absolute;
 	right: 0px;
-	top: 16px;
+	top: 0px;
 	display: none;
 	cursor: pointer;
 	width: 20px;
