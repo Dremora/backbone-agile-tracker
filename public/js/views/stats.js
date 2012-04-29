@@ -3,7 +3,7 @@ define([
   'backbone',
   'collections/tasks',
   'text!templates/stats.html'
-  ], function(_, Backbone, Tasks, statsTemplate){
+  ], function(_, Backbone, Tasks, statsTemplate) {
   var StatsView = Backbone.View.extend({
 
     // Our template for the line of statistics at the bottom of the app.
@@ -19,7 +19,7 @@ define([
 
     // Clear all done task items, destroying their models.
     clearCompleted: function() {
-      _.each(Tasks.done(), function(task){ task.destroy(); });
+      _.each(Tasks.done(), function(task) { task.destroy(); });
       return false;
     },
 

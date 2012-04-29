@@ -3,7 +3,7 @@ define([
   'underscore',
   'backbone',
   'text!templates/story.html'
-  ], function($, _, Backbone, storyTemplate){
+  ], function($, _, Backbone, storyTemplate) {
   var StoryView = Backbone.View.extend({
 
     tagName:  "li",

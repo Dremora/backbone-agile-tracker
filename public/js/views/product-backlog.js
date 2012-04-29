@@ -45,7 +45,7 @@ define([
       tooltip.fadeOut();
       if (this.tooltipTimeout) clearTimeout(this.tooltipTimeout);
       if (val == '' || val == this.input.attr('placeholder')) return;
-      var show = function(){ tooltip.show().fadeIn(); };
+      var show = function() { tooltip.show().fadeIn(); };
       this.tooltipTimeout = _.delay(show, 1000);
     }
 

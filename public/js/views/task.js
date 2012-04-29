@@ -3,14 +3,14 @@ define([
   'underscore',
   'backbone',
   'text!templates/task.html'
-  ], function($, _, Backbone, tasksTemplate){
+  ], function($, _, Backbone, taskTemplate) {
   var TaskView = Backbone.View.extend({
 
     //... is a list tag.
     tagName:  "li",
 
     // Cache the template function for a single item.
-    template: _.template(tasksTemplate),
+    template: _.template(taskTemplate),
 
     // The DOM events specific to an item.
     events: {
