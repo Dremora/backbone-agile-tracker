@@ -15,7 +15,7 @@ define([
     // The DOM events specific to an item.
     events: {
       "dblclick div.task-content" : "edit",
-      "click span.task-destroy"   : "clear",
+      "click span.task-destroy"   : "destroy",
       "keypress .task-input"      : "updateOnEnter",
       "blur .task-input"          : "close",
       'click .increment-status'   : 'incrementStatus',
@@ -64,8 +64,8 @@ define([
     },
 
     // Remove the item, destroy the model.
-    clear: function() {
-      this.model.clear();
+    destroy: function() {
+      this.model.destroy();
     }
 
   });
