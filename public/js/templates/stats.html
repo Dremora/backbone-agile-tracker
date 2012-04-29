@@ -1,14 +1,14 @@
  <% if (total) { %>
-        <span class="task-count">
-          <span class="number"><%= newTasks + inProgress %></span>
-          <span class="word"><%= newTasks + inProgress == 1 ? 'item' : 'items' %></span> left.
-        </span>
-      <% } %>
-      <% if (done) { %>
-        <span class="task-clear">
-          <a href="#">
-            Clear <span class="number-done"><%= done %></span>
-            completed <span class="word-done"><%= done == 1 ? 'item' : 'items' %></span>
-          </a>
-        </span>
-      <% } %>
+  <span class="task-count">
+    <span class="number"><%= newTasks + inProgress %></span>
+    <span class="word"><%= newTasks + inProgress == 1 ? 'item' : 'items' %></span> left.
+  </span>
+<% } %>
+<% if (done) { %>
+  <span class="task-clear">
+    <a href="#">
+      Clear <span class="number-done"><%= done %></span>
+      completed <span class="word-done"><%= done == 1 ? 'item' : 'items' %></span>
+    </a>
+  </span>
+<% } %>
