@@ -12,6 +12,7 @@ require.config({
 
 });
 
-require(['router'], function(Router) {
+require(['router', 'views/app'], function(Router, AppView) {
   var router = new Router;
+  new AppView;
 });

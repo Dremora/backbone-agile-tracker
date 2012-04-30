@@ -80,6 +80,10 @@ body {
 	margin-bottom: 10px;
 }
 
+#taskapp > nav .sprint-select {
+	float: right;
+}
+
 #taskapp > nav ul {
 	float: left;
 	position: relative;
