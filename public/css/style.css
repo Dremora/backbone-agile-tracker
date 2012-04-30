@@ -248,7 +248,7 @@ ul.tasks .task button {
 	visibility: hidden;
 }
 
-ul.tasks li:hover button{
+ul.tasks li:hover button {
 	opacity: 0.3;
 	visibility: visible;
 }
@@ -265,6 +265,23 @@ ul.tasks .task .decrement-status {
 ul.tasks .task .increment-status {
 	float: right;
     background-image: url(right.png);
+}
+
+ul.tasks .task .move-up {
+	float: right;
+	margin-left: 5px;
+    background-image: url(up.png);
+}
+
+ul.tasks .task .move-down {
+	float: right;
+	margin-left: 5px;
+    background-image: url(down.png);
+}
+
+ul.tasks > li:first-child .move-up,
+ul.tasks > li:last-child .move-down {
+	visibility: hidden;
 }
 
 

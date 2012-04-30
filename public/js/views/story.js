@@ -13,7 +13,9 @@ define([
       "dblclick div.task-content" : "edit",
       "click span.destroy"        : "destroy",
       "keypress .task-input"      : "updateOnEnter",
-      "blur .task-input"          : "close"
+      "blur .task-input"          : "close",
+      'click .move-up'            : 'moveUp',
+      'click .move-down'          : 'moveDown'
     },
 
     initialize: function() {
@@ -40,6 +42,14 @@ define([
 
     updateOnEnter: function(e) {
       if (e.keyCode == 13) this.close();
+    },
+
+    moveUp: function() {
+      this.model.save({order: this.model.get('order') - 1});
+    },
+
+    moveDown: function() {
+      this.model.save({order: this.model.get('order') + 1});
     },
 
     destroy: function() {
