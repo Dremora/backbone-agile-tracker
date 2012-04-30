@@ -1,6 +1,10 @@
 <select>
   <% sprints.each(function(sprint) { %>
-  <option value=""><%=sprint.get('name') %></option>
+  <option
+  <% if (sprint.get('id') === current) { %>
+    selected
+  <% } %>
+  value=""><%=sprint.get('name') %></option>
   <% }) %>
 </select>
 <button class="new-sprint">New sprint</button>
