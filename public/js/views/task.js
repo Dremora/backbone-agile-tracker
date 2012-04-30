@@ -25,15 +25,19 @@ define([
     // The TaskView listens for changes to its model, re-rendering. Since there's
     // a one-to-one correspondence between a **Task** and a **TaskView** in this
     // app, we set a direct reference on the model for convenience.
-    initialize: function() {
+    initialize: function(options) {
       _.bindAll(this, 'render', 'close', 'remove');
       this.model.bind('change', this.render);
       this.model.bind('destroy', this.remove);
+      this.editable = options.editable === undefined ? true : options.editable;
     },
 
     // Re-render the contents of the task item.
     render: function() {
       $(this.el).html(this.template(this.model.toJSON()));
+      if (this.editable) {
+        this.$el.addClass('editable');
+      }
       this.input = this.$('.task-input');
       return this;
     },

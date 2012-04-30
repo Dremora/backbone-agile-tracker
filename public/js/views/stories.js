@@ -13,18 +13,20 @@ define([
       _.bindAll(this, 'addOne');
       this.collection.on('add', this.addOne);
       this.collection.on('reset', this.render, this);
+      this.editable = options.editable === undefined ? true : options.editable;
+      this.filter = options.filter || function() { return true; }
 
       this.collection.fetch();
     },
 
     render: function() {
       this.$el.empty();
-      this.collection.each(this.addOne);
+      _.each(this.collection.filter(this.filter), this.addOne);
       return this;
     },
 
     addOne: function(story) {
-      var view = new StoryView({model: story});
+      var view = new StoryView({model: story, editable: this.editable});
       this.$el.append(view.render().el);
     }
 

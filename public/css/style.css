@@ -137,6 +137,18 @@ body {
 	margin-left: -85px;
 }
 
+/* Sprint planning mode */
+.sprint-planning {
+	overflow: hidden;
+}
+
+.sprint-planning .product-backlog,
+.sprint-planning .sprint-backlog {
+	width: 50%;
+	float: left;
+}
+
+/* Sprint mode */
 ul.task-columns {
 	overflow: hidden;
 }
@@ -225,7 +237,7 @@ ul.tasks .destroy {
 	background: url(destroy.png) no-repeat 0 0;
 }
 
-ul.tasks li:hover .destroy {
+ul.tasks li:hover.editable .destroy {
 	display: block;
 }
 
@@ -235,6 +247,11 @@ ul.tasks .destroy:hover {
 
 ul.tasks .task .buttons {
 	padding-top: 5px;
+	display: none;
+}
+
+ul.tasks .editable .task .buttons {
+	display: block;
 }
 
 ul.tasks .task button {

@@ -18,19 +18,24 @@ define([
       'click .move-down'          : 'moveDown'
     },
 
-    initialize: function() {
+    initialize: function(options) {
       _.bindAll(this, 'render', 'close', 'remove');
       this.model.bind('change', this.render);
       this.model.bind('destroy', this.remove);
+      this.editable = options.editable === undefined ? true : options.editable;
     },
 
     render: function() {
-      $(this.el).html(this.template(this.model.toJSON()));
+      this.$el.html(this.template(this.model.toJSON()));
+      if (this.editable) {
+        this.$el.addClass('editable');
+      }
       this.input = this.$('.task-input');
       return this;
     },
 
     edit: function() {
+      if (!this.editable) return;
       $(this.el).addClass("editing");
       this.input.focus();
     },
