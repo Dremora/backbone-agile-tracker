@@ -16,13 +16,6 @@ define([
       "keyup .new-task":     "showTooltip"
     },
 
-    // At initialization we bind to the relevant events on the `Tasks`
-    // collection, when items are added or changed. Kick things off by
-    // loading any preexisting tasks that might be saved in *localStorage*.
-    initialize: function() {
-      this.render();
-    },
-
     render: function() {
       this.$el.html(this.template());
       this.input = this.$(".new-task");

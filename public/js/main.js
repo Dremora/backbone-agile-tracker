@@ -14,5 +14,6 @@ require.config({
 
 require(['router', 'views/app'], function(Router, AppView) {
   var router = new Router;
-  new AppView;
+  var app = new AppView;
+  app.render();
 });

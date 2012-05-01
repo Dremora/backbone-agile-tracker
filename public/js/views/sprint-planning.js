@@ -13,7 +13,6 @@ define([
     initialize: function() {
       _.bindAll(this, 'render');
       CurrentSprint.on('change', this.render);
-      this.render();
     },
 
     render: function() {

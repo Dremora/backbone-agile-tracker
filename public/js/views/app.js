@@ -8,10 +8,6 @@ define([
 
     el: $("#taskapp"),
 
-    initialize: function() {
-      this.render();
-    },
-
     render: function() {
       this.$('.sprint-select').append(new SprintSelect().render().el);
       return this;

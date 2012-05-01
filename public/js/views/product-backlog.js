@@ -15,10 +15,6 @@ define([
       "keyup .new-task":     "showTooltip"
     },
 
-    initialize: function() {
-      this.render();
-    },
-
     render: function() {
       this.$el.html(this.template());
       this.input = this.$(".new-task");
