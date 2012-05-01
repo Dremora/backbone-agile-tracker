@@ -21,13 +21,13 @@ define([
       this.input = this.$(".new-task");
       var tasks = this.$('.task-columns');
       tasks.find('.unstarted').append(new TasksView({
-        status: 'new'
+        filter: {status: 'new'}
       }).render().$el);
       tasks.find('.ongoing').append(new TasksView({
-        status: 'inProgress'
+        filter: {status: 'inProgress'}
       }).render().$el);
       tasks.find('.completed').append(new TasksView({
-        status: 'done'
+        filter: {status: 'done'}
       }).render().$el);
       this.$('.task-stats').html(new StatsView().render().$el);
       return this;
