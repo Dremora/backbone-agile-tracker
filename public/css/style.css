@@ -257,8 +257,8 @@ ul.tasks .done .task-content {
 	color: #777777;
 }
 
-ul.stories .destroy,
-ul.tasks .destroy {
+ul.stories .story > .display > .destroy,
+ul.tasks .task > .display > .destroy {
 	position: absolute;
 	right: 0px;
 	top: 0px;
@@ -269,8 +269,8 @@ ul.tasks .destroy {
 	background: url(destroy.png) no-repeat 0 0;
 }
 
-ul.stories li:hover.editable .destroy,
-ul.tasks li:hover.editable .destroy {
+ul.stories > li:hover.editable .story > .display > .destroy,
+ul.tasks > li:hover.editable .task > .display > .destroy {
 	display: block;
 }
 

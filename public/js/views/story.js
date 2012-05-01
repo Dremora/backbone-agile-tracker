@@ -15,7 +15,7 @@ define([
 
     events: {
       "dblclick div.story-content" : "edit",
-      "click span.destroy"         : "destroy",
+      "click .story span.destroy"  : "destroy",
       "keypress .story-input"      : "updateOnEnter",
       "blur .story-input"          : "close",
       'click .move-up'             : 'moveUp',
