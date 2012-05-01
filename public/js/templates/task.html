@@ -2,16 +2,16 @@
   <div class="display">
     <div class="task-content"><%= content %></div>
     <span class="destroy"></span>
+    <div class="buttons">
+      <% if (status !== 'new') { %>
+      <button class="decrement-status">←</button>
+      <% } %>
+      <% if (status !== 'done') { %>
+      <button class="increment-status">→</button>
+      <% } %>
+    </div>
   </div>
   <div class="edit">
     <input class="task-input" type="text" value="<%= content %>" />
-  </div>
-  <div class="buttons">
-    <% if (status !== 'new') { %>
-    <button class="decrement-status">←</button>
-    <% } %>
-    <% if (status !== 'done') { %>
-    <button class="increment-status">→</button>
-    <% } %>
   </div>
 </div>

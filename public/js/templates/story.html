@@ -9,17 +9,17 @@
       no-name">Not in a sprint
     <% } %>
     </span>
+    <div class="buttons">
+      <button class="move-up">Up</button>
+      <button class="move-down">Down</button>
+      <% if (sprint == null) { %>
+      <button class="add-to-sprint">→</button>
+      <% } else { %>
+      <button class="remove-from-sprint">←</button>
+      <% } %>
+    </div>
   </div>
   <div class="edit">
     <input class="story-input" type="text" value="<%= content %>" />
-  </div>
-  <div class="buttons">
-    <button class="move-up">Up</button>
-    <button class="move-down">Down</button>
-    <% if (sprint == null) { %>
-    <button class="add-to-sprint">→</button>
-    <% } else { %>
-    <button class="remove-from-sprint">←</button>
-    <% } %>
   </div>
 </div>
