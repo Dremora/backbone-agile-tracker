@@ -309,13 +309,13 @@ ul.tasks .task > .display > .destroy {
 	background: url(destroy.png) no-repeat 0 0;
 }
 
-ul.stories > li:hover.editable .story > .display > .destroy,
-ul.tasks > li:hover.editable .task > .display > .destroy {
+ul.stories > li.editable .story:hover .destroy,
+ul.tasks > li.editable .task:hover .destroy {
 	display: block;
 }
 
-ul.stories .story > .display > .destroy:hover,
-ul.tasks .task > .display > .destroy:hover {
+ul.stories .story .destroy:hover,
+ul.tasks .task .destroy:hover {
 	background-position: 0 -20px;
 }
 
@@ -333,16 +333,12 @@ ul.tasks .task button {
 ul.stories .story button.add-to-sprint,
 ul.stories .story button.remove-from-sprint,
 ul.stories .editable .story button,
-ul.tasks .task button.add-to-sprint,
-ul.tasks .task button.remove-from-sprint,
 ul.tasks .editable .task button {
 	display: block;
 }
 
 ul.stories .editable .story button.add-to-sprint,
-ul.stories .editable .story button.remove-from-sprint,
-ul.tasks .editable .task button.add-to-sprint,
-ul.tasks .editable .task button.remove-from-sprint {
+ul.stories .editable .story button.remove-from-sprint {
 	display: none;
 }
 
@@ -358,8 +354,8 @@ ul.tasks .task button {
 	visibility: hidden;
 }
 
-ul.stories li:hover button,
-ul.tasks li:hover button {
+ul.stories .story:hover button,
+ul.tasks .task:hover button {
 	opacity: 0.3;
 	visibility: visible;
 }
