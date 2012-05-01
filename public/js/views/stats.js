@@ -13,16 +13,6 @@ define([
       Tasks.bind('all', this.render, this);
     },
 
-    events: {
-      "click .clear a": "clearCompleted"
-    },
-
-    // Clear all done task items, destroying their models.
-    clearCompleted: function() {
-      _.each(Tasks.done(), function(task) { task.destroy(); });
-      return false;
-    },
-
     render: function() {
       var done = Tasks.done().length;
       var newTasks = Tasks.new().length;
