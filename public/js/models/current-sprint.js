@@ -2,7 +2,8 @@ define([
   'underscore',
   'backbone',
   'libs/backbone/localstorage',
-  ], function(_, Backbone, Store) {
+  'collections/sprints'
+  ], function(_, Backbone, Store, Sprints) {
   var CurrentSprint = Backbone.Model.extend({
 
     localStorage: new Store('current-sprint-backbone-require'),
@@ -10,6 +11,15 @@ define([
     defaults: {
       id: 1,
       value: null,
+    },
+
+    getSprint: function() {
+      return Sprints.get(this.get('value'));
+    },
+
+    setSprint: function(sprint) {
+      this.set('value', sprint.id);
+      this.save();
     }
 
   });

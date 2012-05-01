@@ -26,20 +26,18 @@ define([
     render: function() {
       this.$el.html(this.template({
         sprints: this.collection,
-        current: CurrentSprint.get('value')
+        current: CurrentSprint.getSprint()
       }));
       return this;
     },
 
     sprintSelect: function() {
-      CurrentSprint.save({
-        value: this.collection.at(this.$('select').prop("selectedIndex")).get('id')
-      });
+      CurrentSprint.setSprint(this.collection.at(this.$('select').prop("selectedIndex")));
     },
 
     newSprint: function() {
       var sprint = this.collection.create({name: 'Sprint ' + this.collection.nextOrder()});
-      CurrentSprint.save({value: sprint.get('id')});
+      CurrentSprint.setSprint(sprint);
     }
 
   });
