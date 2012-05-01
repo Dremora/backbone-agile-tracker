@@ -1,10 +1,11 @@
 define([
+  'jquery',
   'underscore',
   'backbone',
   'collections/tasks',
   'views/task',
   'text!templates/tasks.html'
-  ], function(_, Backbone, Tasks, TaskView, tasksTemplate) {
+  ], function($, _, Backbone, Tasks, TaskView, tasksTemplate) {
 
   var TasksView = Backbone.View.extend({
 
@@ -36,7 +37,13 @@ define([
     addOne: function(task) {
       var ok = true;
       _.each(this.filter, function(value, name) {
-        if (task.get(name) !== value) ok = false;
+        if ($.isFunction(value)) {
+          if (!value(task.get(name))) {
+            ok = false
+          }
+        } else if (task.get(name) !== value) {
+          ok = false;
+        }
       });
       if (!ok) return;
       var view = new TaskView({model: task});
