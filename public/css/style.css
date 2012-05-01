@@ -113,6 +113,11 @@ body {
 	text-decoration: underline;
 }
 
+h2 {
+	font-size: 16px;
+	text-align: center;
+}
+
 /* Create story/task box */
 .create-story,
 .create-task {
@@ -174,6 +179,11 @@ ul.task-columns > li {
 	float: left;
 }
 
+ul.task-columns > li > * {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
 ul.stories,
 ul.tasks {
 	margin-top: 10px;
@@ -181,11 +191,42 @@ ul.tasks {
 
 ul.stories > li,
 ul.tasks > li {
-	padding: 15px 20px 15px 0;
 	position: relative;
 	font-size: 24px;
 	line-height: 1.1em;
-	border-bottom: 1px solid #cccccc;
+	border: 0 solid #cccccc;
+	border-bottom-width: 1px;
+}
+
+ul.stories > li {
+	margin: 0 20px;
+	padding: 15px 0;
+}
+
+ul.tasks > li {
+	font-size: 16px;
+	border-width: 0 1px 1px;
+	border-color: #eee;
+	padding: 5px 8px;
+}
+
+ul.stories > li:last-child {
+	border-bottom: none;
+}
+
+ul.tasks > li:first-child {
+	border-top-width: 1px;
+	border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
+}
+
+ul.tasks > li:last-child {
+	border-bottom-right-radius: 4px;
+	border-bottom-left-radius: 4px;
+}
+
+ul.tasks > li:nth-child(odd) {
+	background-color: #F9F9F9;
 }
 
 ul.stories .display,
@@ -273,8 +314,8 @@ ul.tasks > li:hover.editable .task > .display > .destroy {
 	display: block;
 }
 
-ul.stories .destroy:hover,
-ul.tasks .destroy:hover {
+ul.stories .story > .display > .destroy:hover,
+ul.tasks .task > .display > .destroy:hover {
 	background-position: 0 -20px;
 }
 
