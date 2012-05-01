@@ -4,10 +4,11 @@ define([
   'backbone',
   'models/current-sprint',
   'collections/sprints',
+  'collections/tasks',
   'views/new-task',
   'views/tasks',
   'text!templates/story.html'
-  ], function($, _, Backbone, CurrentSprint, Sprints, NewTaskView, TasksView, storyTemplate) {
+  ], function($, _, Backbone, CurrentSprint, Sprints, Tasks, NewTaskView, TasksView, storyTemplate) {
   var StoryView = Backbone.View.extend({
 
     tagName:  "li",
@@ -87,6 +88,11 @@ define([
 
     destroy: function() {
       this.model.destroy();
+      Tasks.each(function(task) {
+        if (task.get('story') == this.model.id) {
+          task.destroy();
+        }
+      }, this);
     }
 
   });

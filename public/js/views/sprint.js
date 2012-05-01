@@ -16,7 +16,7 @@ define([
       _.bindAll(this, 'render');
       CurrentSprint.on('change', this.render);
       this.sprintFilter = function(storyId) {
-        return Stories.get(storyId).get('sprint') == CurrentSprint.get('value');
+        return Stories.get(storyId) != null && Stories.get(storyId).get('sprint') == CurrentSprint.get('value');
       }
     },
 
