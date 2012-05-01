@@ -186,7 +186,6 @@ ul.tasks > li {
 	font-size: 24px;
 	line-height: 1.1em;
 	border-bottom: 1px solid #cccccc;
-	cursor: move;
 }
 
 ul.stories .display,
