@@ -7,7 +7,7 @@ define([
   var StoriesView = Backbone.View.extend({
 
     tagName: 'ul',
-    className: 'tasks',
+    className: 'stories',
 
     initialize: function(options) {
       _.bindAll(this, 'addOne', 'render');

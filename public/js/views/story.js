@@ -14,14 +14,14 @@ define([
     template: _.template(storyTemplate),
 
     events: {
-      "dblclick div.task-content" : "edit",
-      "click span.destroy"        : "destroy",
-      "keypress .task-input"      : "updateOnEnter",
-      "blur .task-input"          : "close",
-      'click .move-up'            : 'moveUp',
-      'click .move-down'          : 'moveDown',
-      'click .add-to-sprint'      : 'addToSprint',
-      'click .remove-from-sprint' : 'removeFromSprint'
+      "dblclick div.story-content" : "edit",
+      "click span.destroy"         : "destroy",
+      "keypress .story-input"      : "updateOnEnter",
+      "blur .story-input"          : "close",
+      'click .move-up'             : 'moveUp',
+      'click .move-down'           : 'moveDown',
+      'click .add-to-sprint'       : 'addToSprint',
+      'click .remove-from-sprint'  : 'removeFromSprint'
     },
 
     initialize: function(options) {
@@ -47,7 +47,7 @@ define([
           filter: {story: this.model.id}
         }).render().el);
       }
-      this.input = this.$('.task-input');
+      this.input = this.$('.story-input');
       return this;
     },
 

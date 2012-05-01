@@ -174,10 +174,12 @@ ul.task-columns > li {
 	float: left;
 }
 
+ul.stories,
 ul.tasks {
 	margin-top: 10px;
 }
 
+ul.stories > li,
 ul.tasks > li {
 	padding: 15px 20px 15px 0;
 	position: relative;
@@ -187,10 +189,12 @@ ul.tasks > li {
 	cursor: move;
 }
 
+ul.stories .display,
 ul.tasks .display {
 	position: relative;
 }
 
+ul.stories > li:after,
 ul.tasks > li:after {
 	content: "\0020";
 	display: block;
@@ -200,17 +204,20 @@ ul.tasks > li:after {
 	visibility: hidden;
 }
 
+ul.stories > li.editing,
 ul.tasks > li.editing {
 	padding: 0;
 	border-bottom: 0;
 }
 
+ul.stories .editing .display,
+ul.stories .edit,
 ul.tasks .editing .display,
 ul.tasks .edit {
 	display: none;
 }
 
-ul.tasks .task .sprint-name {
+ul.stories .story .sprint-name {
 	font-size: 0.5em;
 	border-radius: 3px;
 	padding: 1px 4px;
@@ -218,14 +225,16 @@ ul.tasks .task .sprint-name {
 	color: #eee;
 }
 
-ul.tasks .task .sprint-name.no-name {
+ul.stories .story .sprint-name.no-name {
 	background-color: #822;
 }
 
+ul.story .editing .edit,
 ul.tasks .editing .edit {
 	display: block;
 }
 
+ul.stories .editing input,
 ul.tasks .editing input {
 	width: 100%;
 	font-size: 24px;
@@ -242,18 +251,13 @@ ul.tasks .editing input {
 	box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
 }
 
-ul.tasks .check {
-	position: relative;
-	top: 9px;
-	margin: 0 10px 0 7px;
-	float: left;
-}
-
+ul.stories .done .story-content,
 ul.tasks .done .task-content {
 	text-decoration: line-through;
 	color: #777777;
 }
 
+ul.stories .destroy,
 ul.tasks .destroy {
 	position: absolute;
 	right: 0px;
@@ -265,34 +269,44 @@ ul.tasks .destroy {
 	background: url(destroy.png) no-repeat 0 0;
 }
 
+ul.stories li:hover.editable .destroy,
 ul.tasks li:hover.editable .destroy {
 	display: block;
 }
 
+ul.stories .destroy:hover,
 ul.tasks .destroy:hover {
 	background-position: 0 -20px;
 }
 
+ul.stories .story .buttons,
 ul.tasks .task .buttons {
 	padding-top: 5px;
 	overflow: auto;
 }
 
+ul.stories .story button,
 ul.tasks .task button {
 	display: none;
 }
 
+ul.stories .story button.add-to-sprint,
+ul.stories .story button.remove-from-sprint,
+ul.stories .editable .story button,
 ul.tasks .task button.add-to-sprint,
 ul.tasks .task button.remove-from-sprint,
 ul.tasks .editable .task button {
 	display: block;
 }
 
+ul.stories .editable .story button.add-to-sprint,
+ul.stories .editable .story button.remove-from-sprint,
 ul.tasks .editable .task button.add-to-sprint,
 ul.tasks .editable .task button.remove-from-sprint {
 	display: none;
 }
 
+ul.stories .story button,
 ul.tasks .task button {
     text-indent: -9999px;
     border: 0;
@@ -304,39 +318,45 @@ ul.tasks .task button {
 	visibility: hidden;
 }
 
+ul.stories li:hover button,
 ul.tasks li:hover button {
 	opacity: 0.3;
 	visibility: visible;
 }
 
+ul.stories .story button:hover,
 ul.tasks .task button:hover {
 	opacity: 1;
 }
 
-ul.tasks .task .decrement-status,
-ul.tasks .task .remove-from-sprint {
+ul.stories .story .remove-from-sprint,
+ul.tasks .task .decrement-status {
 	float: left;
     background-image: url(left.png);
 }
 
-ul.tasks .task .increment-status,
-ul.tasks .task .add-to-sprint {
+ul.stories .story .add-to-sprint,
+ul.tasks .task .increment-status {
 	float: right;
     background-image: url(right.png);
 }
 
+ul.stories .story .move-up,
 ul.tasks .task .move-up {
 	float: right;
 	margin-left: 5px;
     background-image: url(up.png);
 }
 
+ul.stories .story .move-down,
 ul.tasks .task .move-down {
 	float: right;
 	margin-left: 5px;
     background-image: url(down.png);
 }
 
+ul.stories > li:first-child .move-up,
+ul.stories > li:last-child .move-down,
 ul.tasks > li:first-child .move-up,
 ul.tasks > li:last-child .move-down {
 	visibility: hidden;
