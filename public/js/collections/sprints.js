@@ -19,7 +19,7 @@ define([
     },
 
   });
-  sprints = new Sprints
+  var sprints = new Sprints
   sprints.fetch();
   return sprints;
 });
