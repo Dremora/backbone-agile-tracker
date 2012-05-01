@@ -11,8 +11,8 @@ define([
 
     // Delegated events for creating new items, and clearing completed ones.
     events: {
-      "keypress #new-task":  "createOnEnter",
-      "keyup #new-task":     "showTooltip"
+      "keypress .new-task":  "createOnEnter",
+      "keyup .new-task":     "showTooltip"
     },
 
     initialize: function() {
@@ -21,7 +21,7 @@ define([
 
     render: function() {
       this.$el.html(this.template());
-      this.input = this.$("#new-task");
+      this.input = this.$(".new-task");
       this.$el.append(new StoriesView({collection: Stories}).render().$el);
       return this;
     },
