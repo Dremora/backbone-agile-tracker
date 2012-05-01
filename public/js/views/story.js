@@ -2,8 +2,9 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'models/current-sprint',
   'text!templates/story.html'
-  ], function($, _, Backbone, storyTemplate) {
+  ], function($, _, Backbone, CurrentSprint, storyTemplate) {
   var StoryView = Backbone.View.extend({
 
     tagName:  "li",
@@ -15,7 +16,9 @@ define([
       "keypress .task-input"      : "updateOnEnter",
       "blur .task-input"          : "close",
       'click .move-up'            : 'moveUp',
-      'click .move-down'          : 'moveDown'
+      'click .move-down'          : 'moveDown',
+      'click .add-to-sprint'      : 'addToSprint',
+      'click .remove-from-sprint' : 'removeFromSprint'
     },
 
     initialize: function(options) {
@@ -55,6 +58,14 @@ define([
 
     moveDown: function() {
       this.model.save({order: this.model.get('order') + 1});
+    },
+
+    addToSprint: function() {
+      this.model.save({sprint: CurrentSprint.get('value')});
+    },
+
+    removeFromSprint: function() {
+      this.model.save({sprint: null});
     },
 
     destroy: function() {

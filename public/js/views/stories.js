@@ -10,9 +10,10 @@ define([
     className: 'tasks',
 
     initialize: function(options) {
-      _.bindAll(this, 'addOne');
+      _.bindAll(this, 'addOne', 'render');
       this.collection.on('add', this.addOne);
-      this.collection.on('reset', this.render, this);
+      this.collection.on('reset', this.render);
+      this.collection.on('change:sprint', this.render);
       this.editable = options.editable === undefined ? true : options.editable;
       this.filter = options.filter || function() { return true; }
 

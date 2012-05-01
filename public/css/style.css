@@ -251,11 +251,21 @@ ul.tasks .destroy:hover {
 
 ul.tasks .task .buttons {
 	padding-top: 5px;
+}
+
+ul.tasks .task button {
 	display: none;
 }
 
-ul.tasks .editable .task .buttons {
+ul.tasks .task button.add-to-sprint,
+ul.tasks .task button.remove-from-sprint,
+ul.tasks .editable .task button {
 	display: block;
+}
+
+ul.tasks .editable .task button.add-to-sprint,
+ul.tasks .editable .task button.remove-from-sprint {
+	display: none;
 }
 
 ul.tasks .task button {
@@ -278,12 +288,14 @@ ul.tasks .task button:hover {
 	opacity: 1;
 }
 
-ul.tasks .task .decrement-status {
+ul.tasks .task .decrement-status,
+ul.tasks .task .remove-from-sprint {
 	float: left;
     background-image: url(left.png);
 }
 
-ul.tasks .task .increment-status {
+ul.tasks .task .increment-status,
+ul.tasks .task .add-to-sprint {
 	float: right;
     background-image: url(right.png);
 }
