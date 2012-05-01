@@ -260,9 +260,13 @@ ul.tasks .edit {
 ul.stories .story .sprint-name {
 	font-size: 0.5em;
 	border-radius: 3px;
-	padding: 1px 4px;
+	padding: 2px 4px;
+	line-height: 1;
 	background-color: #282;
 	color: #eee;
+	display: block;
+	float: left;
+	margin: 10px 5px 0 3px;
 }
 
 ul.stories .story .sprint-name.no-name {
