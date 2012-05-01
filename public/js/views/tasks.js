@@ -7,6 +7,8 @@ define([
 
   var TasksView = Backbone.View.extend({
 
+    tagName: 'ul',
+    className: 'tasks',
     template: _.template(tasksTemplate),
 
     initialize: function(options) {
@@ -15,7 +17,6 @@ define([
       this.collection.on('remove', this.render, this);
       this.collection.on('reset', this.render, this);
       this.status = options.status;
-      this.name = options.name;
 
       this.collection.on('change:status', this.render, this);
 
@@ -24,7 +25,7 @@ define([
     },
 
     render: function() {
-      this.$el.html(this.template({name: this.name}));
+      this.$el.empty();
       this.collection.each(this.addOne);
       return this;
     },
@@ -34,7 +35,7 @@ define([
     addOne: function(task) {
       if (task.get('status') !== this.status) return;
       var view = new TaskView({model: task});
-      this.$('.tasks').append(view.render().el);
+      this.$el.append(view.render().el);
     }
 
   });
