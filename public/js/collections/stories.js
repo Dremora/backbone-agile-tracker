@@ -47,5 +47,7 @@ define([
     }
 
   });
-  return new Stories;
+  var stories = new Stories;
+  stories.fetch();
+  return stories;
 });

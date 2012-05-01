@@ -16,8 +16,6 @@ define([
       this.collection.on('change:sprint', this.render);
       this.editable = options.editable === undefined ? true : options.editable;
       this.filter = options.filter || function() { return true; }
-
-      this.collection.fetch();
     },
 
     render: function() {
