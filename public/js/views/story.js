@@ -75,7 +75,10 @@ define([
     },
 
     addToSprint: function() {
-      this.model.save({sprint: CurrentSprint.get('value')});
+      var sprint = CurrentSprint.get('value');
+      if (sprint != null) {
+        this.model.save({sprint: sprint});
+      }
     },
 
     removeFromSprint: function() {
