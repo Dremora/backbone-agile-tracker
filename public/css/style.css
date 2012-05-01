@@ -228,7 +228,7 @@ ul.stories .story .sprint-name.no-name {
 	background-color: #822;
 }
 
-ul.story .editing .edit,
+ul.stories .editing .edit,
 ul.tasks .editing .edit {
 	display: block;
 }
