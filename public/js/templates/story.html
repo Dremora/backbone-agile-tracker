@@ -2,6 +2,13 @@
   <div class="display">
     <div class="task-content"><%= content %></div>
     <span class="destroy"></span>
+    <span class="sprint-name
+    <% if (sprintName != null) { %>
+      "><%= sprintName %>
+    <% } else { %>
+      no-name">Not in a sprint
+    <% } %>
+    </span>
   </div>
   <div class="edit">
     <input class="task-input" type="text" value="<%= content %>" />

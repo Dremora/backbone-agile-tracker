@@ -198,6 +198,18 @@ ul.tasks .edit {
 	display: none;
 }
 
+ul.tasks .task .sprint-name {
+	font-size: 0.5em;
+	border-radius: 3px;
+	padding: 1px 4px;
+	background-color: #282;
+	color: #eee;
+}
+
+ul.tasks .task .sprint-name.no-name {
+	background-color: #822;
+}
+
 ul.tasks .editing .edit {
 	display: block;
 }

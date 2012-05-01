@@ -3,8 +3,9 @@ define([
   'underscore',
   'backbone',
   'models/current-sprint',
+  'collections/sprints',
   'text!templates/story.html'
-  ], function($, _, Backbone, CurrentSprint, storyTemplate) {
+  ], function($, _, Backbone, CurrentSprint, Sprints, storyTemplate) {
   var StoryView = Backbone.View.extend({
 
     tagName:  "li",
@@ -29,7 +30,10 @@ define([
     },
 
     render: function() {
-      this.$el.html(this.template(this.model.toJSON()));
+      var sprint = Sprints.get(this.model.get('sprint'));
+      this.$el.html(this.template(_.extend(this.model.toJSON(), {
+        sprintName: sprint != null ? sprint.get('name') : null
+      })));
       if (this.editable) {
         this.$el.addClass('editable');
       }

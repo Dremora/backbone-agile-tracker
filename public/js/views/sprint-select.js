@@ -20,7 +20,6 @@ define([
       this.collection.on('reset', this.render);
       this.collection.on('add', this.render);
       CurrentSprint.on('change', this.render);
-      this.collection.fetch();
     },
 
     render: function() {

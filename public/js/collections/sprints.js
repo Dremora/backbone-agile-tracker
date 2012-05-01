@@ -19,5 +19,7 @@ define([
     },
 
   });
-  return new Sprints;
+  sprints = new Sprints
+  sprints.fetch();
+  return sprints;
 });
