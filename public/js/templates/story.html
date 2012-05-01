@@ -1,7 +1,6 @@
 <div class="story">
   <div class="display">
     <div class="story-content"><%= content %></div>
-    <span class="destroy"></span>
     <span class="sprint-name
     <% if (sprintName != null) { %>
       "><%= sprintName %>
@@ -10,6 +9,7 @@
     <% } %>
     </span>
     <div class="buttons">
+      <button class="destroy">Destroy</button>
       <button class="move-up">Up</button>
       <button class="move-down">Down</button>
       <% if (sprint == null) { %>

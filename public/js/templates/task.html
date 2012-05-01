@@ -1,8 +1,8 @@
 <div class="task <%= status %>">
   <div class="display">
     <div class="task-content"><%= content %></div>
-    <span class="destroy"></span>
     <div class="buttons">
+      <button class="destroy">Destroy</button>
       <% if (status !== 'new') { %>
       <button class="decrement-status">←</button>
       <% } %>

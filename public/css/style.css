@@ -297,28 +297,7 @@ ul.tasks .done .task-content {
 	color: #777777;
 }
 
-ul.stories .story > .display > .destroy,
-ul.tasks .task > .display > .destroy {
-	position: absolute;
-	right: 0px;
-	top: 0px;
-	display: none;
-	cursor: pointer;
-	width: 20px;
-	height: 20px;
-	background: url(destroy.png) no-repeat 0 0;
-}
-
-ul.stories > li.editable .story:hover .destroy,
-ul.tasks > li.editable .task:hover .destroy {
-	display: block;
-}
-
-ul.stories .story .destroy:hover,
-ul.tasks .task .destroy:hover {
-	background-position: 0 -20px;
-}
-
+/* Buttons */
 ul.stories .story .buttons,
 ul.tasks .task .buttons {
 	padding-top: 5px;
@@ -363,6 +342,16 @@ ul.tasks .task:hover button {
 ul.stories .story button:hover,
 ul.tasks .task button:hover {
 	opacity: 1;
+}
+
+ul.stories .story .destroy,
+ul.tasks .task .destroy {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 20px;
+	height: 20px;
+	background-image: url(destroy.png);
 }
 
 ul.stories .story .remove-from-sprint,
