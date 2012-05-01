@@ -1,9 +1,10 @@
 define([
   'underscore',
   'backbone',
+  'collections/tasks',
   'views/task',
   'text!templates/tasks.html'
-  ], function(_, Backbone, TaskView, tasksTemplate) {
+  ], function(_, Backbone, Tasks, TaskView, tasksTemplate) {
 
   var TasksView = Backbone.View.extend({
 
@@ -13,15 +14,12 @@ define([
 
     initialize: function(options) {
       _.bindAll(this, 'addOne');
+      this.status = options.status;
+      this.collection = Tasks;
       this.collection.on('add', this.addOne);
       this.collection.on('remove', this.render, this);
       this.collection.on('reset', this.render, this);
-      this.status = options.status;
-
       this.collection.on('change:status', this.render, this);
-
-      this.collection.fetch();
-      this.render();
     },
 
     render: function() {

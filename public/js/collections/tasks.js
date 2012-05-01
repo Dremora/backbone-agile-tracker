@@ -42,5 +42,7 @@ define([
     }
 
   });
-  return new Tasks;
+  var tasks = new Tasks;
+  tasks.fetch();
+  return tasks;
 });
