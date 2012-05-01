@@ -247,14 +247,18 @@ ul.tasks > li:after {
 ul.stories > li.editing,
 ul.tasks > li.editing {
 	padding: 0;
-	border-bottom: 0;
 }
 
-ul.stories .editing .display,
+ul.stories > .editing > .story .display,
 ul.stories .edit,
-ul.tasks .editing .display,
+ul.tasks > .editing > .task .display,
 ul.tasks .edit {
 	display: none;
+}
+
+ul.stories > .editing > .story .edit,
+ul.tasks > .editing > .task .edit {
+	display: block;
 }
 
 ul.stories .story .sprint-name {
@@ -273,13 +277,8 @@ ul.stories .story .sprint-name.no-name {
 	background-color: #822;
 }
 
-ul.stories .editing .edit,
-ul.tasks .editing .edit {
-	display: block;
-}
-
-ul.stories .editing input,
-ul.tasks .editing input {
+ul.stories .story input,
+ul.tasks .task input {
 	width: 100%;
 	font-size: 24px;
 	font-family: inherit;
