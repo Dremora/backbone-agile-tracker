@@ -263,6 +263,7 @@ ul.tasks .destroy:hover {
 
 ul.tasks .task .buttons {
 	padding-top: 5px;
+	overflow: auto;
 }
 
 ul.tasks .task button {

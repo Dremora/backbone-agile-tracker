@@ -4,8 +4,10 @@ define([
   'backbone',
   'models/current-sprint',
   'collections/sprints',
+  'views/new-task',
+  'views/tasks',
   'text!templates/story.html'
-  ], function($, _, Backbone, CurrentSprint, Sprints, storyTemplate) {
+  ], function($, _, Backbone, CurrentSprint, Sprints, NewTaskView, TasksView, storyTemplate) {
   var StoryView = Backbone.View.extend({
 
     tagName:  "li",
@@ -36,6 +38,14 @@ define([
       })));
       if (this.editable) {
         this.$el.addClass('editable');
+      }
+      if (!this.editable && sprint != null) {
+        this.$el.append(new NewTaskView({
+          filter: {story: this.model.id}
+        }).render().el);
+        this.$el.append(new TasksView({
+          filter: {story: this.model.id}
+        }).render().el);
       }
       this.input = this.$('.task-input');
       return this;
